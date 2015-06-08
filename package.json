@@ -1,0 +1,27 @@
+{
+  "name": "w5-graph",
+  "version": "0.0.0",
+  "description": "World Wide Web Who's Who",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stuartpb/w5-graph.git"
+  },
+  "keywords": [
+    "graph"
+  ],
+  "author": "Stuart P. Bentley <stuart@testtrack4.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stuartpb/w5-graph/issues"
+  },
+  "homepage": "https://github.com/stuartpb/w5-graph",
+  "dependencies": {
+    "js-yaml": "^3.3.1",
+    "sigma": "^1.0.3",
+    "whatwg-fetch": "^0.9.0"
+  }
+}

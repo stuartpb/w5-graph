@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>w5-graph</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <style>
+      html, body {
+        height: 100%;
+      }
+      #container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="vendor/fetch.js"></script>
+    <script src="vendor/js-yaml.js"></script>
+    <script src="vendor/sigma.min.js"></script>
+    <script src="vendor/sigma.layout.forceAtlas2.min.js"></script>
+    <script>
+      /* global fetch jsyaml sigma */
+      var s = new sigma('container');
+
+      function addNodes(nodes) {
+        var nodeNames = Object.keys(nodes);
+        function addNode(name, i) {
+          var node = nodes[name];
+          s.graph.addNode({
+            id: name,
+            label: name,
+            x: Math.cos(Math.PI * 2 * i / nodeNames.length),
+            y: Math.sin(Math.PI * 2 * i / nodeNames.length),
+            size: 1
+          });
+        }
+        nodeNames.forEach(addNode);
+      }
+
+      function addEdges(nodes) {
+        var nodeNames = Object.keys(nodes);
+        function addNodeEdges(nodeName, i){
+          var node = nodes[nodeName];
+          function addRelEdges(relName, j) {
+            var targets = node.rels[relName];
+            function addRelEdge(target, k) {
+              if (!nodes[target]) console.error(target);
+              s.graph.addEdge({
+                id: 'edge '+i+' '+j+' '+k,
+                label: relName,
+                source: nodeName,
+                target: target,
+                type: 'arrow'
+              });
+            }
+            if (typeof targets == 'string') {
+              addRelEdge(targets,0);
+            } else {
+              targets.forEach(addRelEdge);
+            }
+          }
+          if (node.rels) {
+            var relNames = Object.keys(node.rels);
+            relNames.forEach(addRelEdges);
+          }
+        }
+        nodeNames.forEach(addNodeEdges);
+      }
+
+      fetch('nodes.yaml').then(function(body){
+        return body.text();
+      }).then(function(text){
+        var nodes = jsyaml.safeLoad(text);
+
+        addNodes(nodes);
+        addEdges(nodes);
+        s.refresh();
+        s.startForceAtlas2({
+          worker: true,
+          barnesHutOptimize: false,
+          gravity: 0
+        });
+      });
+    </script>
+  </body>
+</html>
