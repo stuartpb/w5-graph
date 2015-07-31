@@ -1,0 +1,13 @@
+type: person
+info: Guy who started this graph.
+image: https://stuartpb.com/stuhat.svg
+href: https://stuartpb.com/
+urls:
+  GitHub: https://github.com/stuartpb
+  Twitter: https://twitter.com/stuartpb
+rels:
+  created: w5-graph
+  posts on: [Specifiction, Twitter, crbug.com, lazyweb-requests]
+  contributes to: PEP
+  uses: [GitHub, Cloud9 IDE, Node.js]
+  lives in: Seattle

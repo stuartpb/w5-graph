@@ -1,0 +1,6 @@
+type: project
+info: World Wide Web Who's Who
+href: https://github.com/stuartpb/w5-graph
+rels:
+  hosted on: GitHub
+  uses: YAML
