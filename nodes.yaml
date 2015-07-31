@@ -19,9 +19,10 @@ w5-graph:
   rels:
     hosted on: GitHub
     uses: YAML
-Specifiction:
+WICG Discourse:
+  info: formerly Specifiction
   type: forum
-  href: http://discourse.specifiction.org
+  href: http://discourse.wicg.io/
 Twitter:
   type: network
 Twitter, Inc.:
