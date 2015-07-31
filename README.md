@@ -4,7 +4,12 @@ World Wide Web Who's Who
 
 ## Structure
 
-The YAML file is a map of nodes, where the top level is the name of a node.
+The "nodes" directory contains YAML files describing nodes, with the name of
+the node the file contains data for (with spaces replaced with underscores)
+followed by ".yaml". (A node can specify its name with a "name" property in
+the file if its name doesn't map cleanly to a filename: in this case, the
+filename is merely a best-effort attempt to describe the node's name, for
+human consumers.)
 
 Properties on nodes:
 
