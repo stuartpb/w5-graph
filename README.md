@@ -37,6 +37,12 @@ two different kinds:
   - `issues` (bug tracker)
   - `site` (static domain)
 
+### wikidata
+
+The identifier for the node's subject on [Wikidata][], if available.
+
+[Wikidata]: https://www.wikidata.org/
+
 ### info
 
 A short bio or description of the node's subject.
