@@ -7,7 +7,7 @@ urls:
   Twitter: https://twitter.com/stuartpb
 rels:
   created: w5-graph
-  posts on: [Specifiction, Twitter, crbug.com, lazyweb-requests]
+  posts on: [WICG Discourse, Twitter, crbug.com, lazyweb-requests]
   contributes to: PEP
   uses: [GitHub, Cloud9 IDE, Node.js]
   lives in: Seattle
